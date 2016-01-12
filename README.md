@@ -57,20 +57,23 @@ Check usage of each class:
 ### Base Class: NTPdate
 
 * Schedulle at contab an ntpdate execution using custom ntp servers:
+
  ~~~
-class {'linux::base::ntpdate' :
-  ntpserver => 'pool.ntp.br',
-}
+ class {'linux::base::ntpdate' :
+   ntpserver => 'pool.ntp.br',
+ }
  ~~~
 
 ### Base Class: MOTD
 
 * Create a default 'Message of the Day':
+
  ~~~
 class {'linux::base::motd' : }
  ~~~
 
 * Create a custom message:
+
  ~~~
 class {'linux::base::motd' : 
   content => 'Custom motd message',
@@ -78,6 +81,7 @@ class {'linux::base::motd' :
  ~~~
 
 * Create a custom esb template file:
+
  ~~~
 class {'linux::base::motd' :
   content => 'custom/path/to/motd.esb',
@@ -86,32 +90,37 @@ class {'linux::base::motd' :
 ### Base Class: HOSTS
 
 * Update hots file:
+
  ~~~
-class {'linux::base::hosts' : }
+ class {'linux::base::hosts' : }
  ~~~
 
 ### Base Class: TIMEZONE
 
 * Update system timezone, using default timezone [linux::params]:
+
  ~~~
-class {'linux::base::timezone' : }
+ class {'linux::base::timezone' : }
  ~~~
 
 * Update system timezone from system, usgin custom timezone:
+
  ~~~
-class {'linux::base::timezone' : 
-  timezone => 'America/Recife',
-}
+ class {'linux::base::timezone' : 
+   timezone => 'America/Recife',
+ }
  ~~~
 
 ### Base Class: RESOLV_CONF
 
 * Update /etc/resolv.conf from [linux::params]:
+
  ~~~
 class {'linux::base::resolv_conf' : }
  ~~~
 
 * Update /etc/resolv.conf of custom servers:
+
  ~~~
 class {'linux::base::resolv_conf' : 
   nameservers = ['8.8.8.8'],
@@ -122,6 +131,7 @@ class {'linux::base::resolv_conf' :
 ### Security Class: SELinux
 
 * Set to permissive mode:
+
  ~~~
 class {'linux::security::selinux' :
   mode => permissive,
@@ -129,6 +139,7 @@ class {'linux::security::selinux' :
  ~~~
 
 * Set to enforced mode:
+
  ~~~
 class {'linux::security::selinux' :
   mode => enforced,
@@ -136,6 +147,7 @@ class {'linux::security::selinux' :
  ~~~
 
 * Set to 'disabled' mode:
+
  ~~~
 class {'linux::security::selinux' :
   mode => disabled,
@@ -143,6 +155,7 @@ class {'linux::security::selinux' :
  ~~~
 
 * Config from your own custom template:
+
  ~~~
 class {'linux::security::selinux' :
   template_conf => 'module/selinux/config.erb',
