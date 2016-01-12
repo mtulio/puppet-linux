@@ -1,2 +1,2 @@
-# Example of class: motd
+# Example of class: MOTD
 class { 'linux::base::motd' : }

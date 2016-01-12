@@ -104,6 +104,20 @@ class {'linux::base::timezone' :
 }
  ~~~
 
+### Base Class: RESOLV_CONF
+
+* Update /etc/resolv.conf from [linux::params]:
+ ~~~
+class {'linux::base::resolv_conf' : }
+ ~~~
+
+* Update /etc/resolv.conf of custom servers:
+ ~~~
+class {'linux::base::resolv_conf' : 
+  nameservers = ['8.8.8.8'],
+}
+ ~~~
+
 
 ### Security Class: SELinux
 
@@ -165,6 +179,26 @@ class {'linux::security::selinux' :
  ~~~
 /etc/hosts
  ~~~
+
+### Base Class: TIMEZONE
+
+* Description: Update system timezone
+* Files affected: 
+
+ ~~~
+/etc/localtime
+/etc/timezone
+ ~~~
+
+### Base Class: RESOLV_CONF
+
+* Description: Update DNS local resolver configuration
+* Files affected: 
+
+ ~~~
+/etc/resolv.conf
+ ~~~
+
 
 
 

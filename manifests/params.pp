@@ -11,6 +11,7 @@ class linux::params {
   ## Class: NTPdate 
   $gb_ntpserver = 'a.ntp.br'
 
+  ##############################################
   ## Class: TIMEZONE
   $gb_tz_timezone = 'America/Sao_Paulo'
 
@@ -51,6 +52,39 @@ class linux::params {
     }
   }
 
+  ##############################################
+  ## Class: RESOLV_CONF
 
+  case $::osfamily {
+    'Debian', 'RedHat', 'Suse': {
+      $gb_rc_config_file = '/etc/resolv.conf'
+      $gb_rc_group       = 'root'
+    }
+    'FreeBSD': {
+      $gb_rc_config_file = '/etc/resolv.conf'
+      $gb_rc_group       = 'wheel'
+    }
+    'OpenBSD': {
+      $gb_rc_config_file = '/etc/resolv.conf'
+      $gb_rc_group       = 'wheel'
+    }
+    'Archlinux': {
+      $gb_rc_config_file = '/etc/resolv.conf'
+      $gb_rc_group       = 'root'
+    }
+    'Solaris': { }
+
+    default: {
+      case $::operatingsystem {
+        gentoo: {
+          $gb_rc_config_file = '/etc/resolv.conf'
+          $gb_rc_group       = 'root'
+        }
+        default: {
+          fail("Unsupported platform: ${::osfamily}/${::operatingsystem}")
+        }
+      }
+    }
+  }
 
 }

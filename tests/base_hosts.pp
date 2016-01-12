@@ -1,2 +1,2 @@
-# Example of class: hosts
+# Example of class: HOSTS
 class { 'linux::base::hosts' : }
