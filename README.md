@@ -25,10 +25,10 @@ Security administration:
 * SELinux config
  
 Basic Sysadmin administration:
-* hosts
 * motd
-* timezone
 * ntpdate
+* hosts
+* timezone
 * resolv.conf
 
 
@@ -83,6 +83,12 @@ class {'linux::base::motd' :
   content => 'custom/path/to/motd.esb',
 }
 
+### Base Class: motd
+
+* Update hots file:
+ ~~~
+class {'linux::base::hosts' : }
+ ~~~
 
 ### Security Class: SELinux
 
@@ -127,7 +133,7 @@ class {'linux::security::selinux' :
 /etc/crontab
  ~~~
 
-### Base Class: NTPdate
+### Base Class: MOTD
 
 * Description: Create a custom 'Message of the Day'
 * Files affected: 
@@ -135,6 +141,16 @@ class {'linux::security::selinux' :
  ~~~
 /etc/motd
  ~~~
+
+### Base Class: Hosts
+
+* Description: Update hosts file with your local IP address and domain
+* Files affected: 
+
+ ~~~
+/etc/hosts
+ ~~~
+
 
 
 ### Security Class: SELinux
