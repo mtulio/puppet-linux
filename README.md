@@ -1,4 +1,4 @@
-# linux
+# Linux
 
 #### Table of Contents
 
@@ -15,65 +15,120 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+This module is a 'all-in-one' module to manage main Linux configurations including basic and security options
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
+This module is a 'all-in-one' module to manage main Linux configurations, that includes:
 
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+Security administration:
+* SELinux config
+ 
+Basic Sysadmin administration:
+* hosts
+* motd
+* timezone
+* ntpdate
+* resolv.conf
+
 
 ## Setup
 
-### What linux affects
+### What 'linux' affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+* This module can change all the comportament of the Linux Operational System,
+  mostly the security classes
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements 
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+Class 'iptables' depends of module:
+* firewall
 
-### Beginning with linux
+### Beginning with 'linux'
 
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
+This is a great module to configure your OS Linux. This module can be called from a 
+profile module, and it was created to be easy to manage the simple Linux configurations.
 
 ## Usage
 
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
+Check usage of each class: 
+
+
+### Base Class: NTPdate
+
+* Schedulle defualt NTPdate:
+ ~~~
+class {'linux::base::ntpdate' :
+  ntpserver => 'pool.ntp.br',
+}
+ ~~~
+
+### Security Class: SELinux
+
+* Set to permissive mode:
+ ~~~
+class {'linux::security::selinux' :
+  mode => permissive,
+}
+ ~~~
+
+* Set to enforced mode:
+ ~~~
+class {'linux::security::selinux' :
+  mode => enforced,
+}
+ ~~~
+
+* Set to 'disabled' mode:
+ ~~~
+class {'linux::security::selinux' :
+  mode => disabled,
+}
+ ~~~
+
+* Config from your own custom template:
+ ~~~
+class {'linux::security::selinux' :
+  template_conf => 'module/selinux/config.erb',
+}
+ ~~~
+
 
 ## Reference
 
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+### Base Class: NTPdate
+
+* Description: Schedulle to update System Time using ntpdate
+* Default ntp server: 'a.ntp.br'
+* Files affected: 
+
+ ~~~
+/etc/crontab
+ ~~~
+
+### Security Class: SELinux
+
+* Description: Configure SELinux to enforcing, permissive or disabled mode
+* Files affected: 
+
+ ~~~
+/etc/selinux/config
+ ~~~
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
+OS compatibility: 
+* Red Hat family 7+ 
+
+We're working to support more OS.
 
 ## Development
 
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
+See project page at https://github.com/mtulio/puppet-linux
 
-## Release Notes/Contributors/Etc **Optional**
+## Release Notes
 
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+[0.1.0]
+* Add class security::selinux 
+* Add class base::ntpdate
+
