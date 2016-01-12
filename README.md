@@ -63,7 +63,7 @@ class {'linux::base::ntpdate' :
 }
  ~~~
 
-### Base Class: motd
+### Base Class: MOTD
 
 * Create a default 'Message of the Day':
  ~~~
@@ -83,12 +83,27 @@ class {'linux::base::motd' :
   content => 'custom/path/to/motd.esb',
 }
 
-### Base Class: motd
+### Base Class: HOSTS
 
 * Update hots file:
  ~~~
 class {'linux::base::hosts' : }
  ~~~
+
+### Base Class: TIMEZONE
+
+* Update system timezone, using default timezone [linux::params]:
+ ~~~
+class {'linux::base::timezone' : }
+ ~~~
+
+* Update system timezone from system, usgin custom timezone:
+ ~~~
+class {'linux::base::timezone' : 
+  timezone => 'America/Recife',
+}
+ ~~~
+
 
 ### Security Class: SELinux
 
