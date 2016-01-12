@@ -1,1 +1,4 @@
-include linux::security::selinux
+
+class {'linux::security::selinux' : 
+  mode => permissive,
+}
