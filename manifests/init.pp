@@ -29,11 +29,11 @@
 #
 # === Authors
 #
-# Author Name <author@domain.com>
+# Marco Túlio R Braga <git@mtulio.eng.br>
 #
 # === Copyright
 #
-# Copyright 2016 Your name here, unless otherwise noted.
+# Copyright 2016 Marco Tulio R Braga, unless otherwise noted.
 #
 class linux {
 
