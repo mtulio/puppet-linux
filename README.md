@@ -56,12 +56,33 @@ Check usage of each class:
 
 ### Base Class: NTPdate
 
-* Schedulle defualt NTPdate:
+* Schedulle at contab an ntpdate execution using custom ntp servers:
  ~~~
 class {'linux::base::ntpdate' :
   ntpserver => 'pool.ntp.br',
 }
  ~~~
+
+### Base Class: motd
+
+* Create a default 'Message of the Day':
+ ~~~
+class {'linux::base::motd' : }
+ ~~~
+
+* Create a custom message:
+ ~~~
+class {'linux::base::motd' : 
+  content => 'Custom motd message',
+}
+ ~~~
+
+* Create a custom esb template file:
+ ~~~
+class {'linux::base::motd' :
+  content => 'custom/path/to/motd.esb',
+}
+
 
 ### Security Class: SELinux
 
@@ -105,6 +126,16 @@ class {'linux::security::selinux' :
  ~~~
 /etc/crontab
  ~~~
+
+### Base Class: NTPdate
+
+* Description: Create a custom 'Message of the Day'
+* Files affected: 
+
+ ~~~
+/etc/motd
+ ~~~
+
 
 ### Security Class: SELinux
 
