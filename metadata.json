@@ -1,6 +1,6 @@
 {
   "name": "mtulio-linux",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "author": "mtulio",
   "summary": "Manage main Linux configurations in a single module.",
   "license": "Apache-2.0",

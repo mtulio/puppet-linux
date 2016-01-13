@@ -5,9 +5,9 @@
 1. [Overview](#overview)
 2. [Module Description](#module-description)
 3. [Setup](#setup)
-    * [What linux affects](#what-linux-affects)
+    * [What module affects](#what-module-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning](#beginning-with-linux)
+    * [Beginning](#beginning)
 4. [Usage](#usage)
 5. [Reference](#reference)
 5. [Limitations](#limitations)
@@ -34,7 +34,7 @@ Basic Sysadmin administration:
 
 ## Setup
 
-### What 'linux' affects
+### What module affects
 
 * This module can change all the comportament of the Linux Operational System,
   mostly the security classes
@@ -44,7 +44,7 @@ Basic Sysadmin administration:
 Class 'iptables' depends of module:
 * firewall
 
-### Beginning with 'linux'
+### Beginning
 
 This is a great module to configure your OS Linux. This module can be called from a 
 profile module, and it was created to be easy to manage the simple Linux configurations.
@@ -124,6 +124,22 @@ Check usage of each class:
  ~~~
  class {'linux::base::resolv_conf' : 
    nameservers = ['8.8.8.8'],
+ }
+ ~~~
+
+### Base Class: SUDOERS
+
+* Update /etc/sudoers from default template :
+
+ ~~~
+ class {'linux::base::resolv_conf' : }
+ ~~~
+
+* Update /etc/sudoers from custom template:
+
+ ~~~
+ class {'linux::base::resolv_conf' : 
+   template => '/path/to/your/template/sudoers',
  }
  ~~~
 
@@ -211,6 +227,14 @@ class {'linux::security::selinux' :
  ~~~
 /etc/resolv.conf
  ~~~
+### Base Class: SUDOERS
+
+* Description: Update SUDOERS file to manage grant right for users on Linux System
+* Files affected: 
+
+ ~~~
+/etc/sudoers
+ ~~~
 
 
 
@@ -236,6 +260,10 @@ We're working to support more OS.
 See project page at https://github.com/mtulio/puppet-linux
 
 ## Release Notes
+
+[1.0.0]
+* Add module: linux::base::sudoers
+* Review documentation e project description
 
 [0.1.0]
 * Add class security::selinux 
