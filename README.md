@@ -3,15 +3,15 @@
 #### Table of Contents
 
 1. [Overview](#overview)
-2. [Module Description - What the module does and why it is useful](#module-description)
-3. [Setup - The basics of getting started with linux](#setup)
+2. [Module Description](#module-description)
+3. [Setup](#setup)
     * [What linux affects](#what-linux-affects)
     * [Setup requirements](#setup-requirements)
-    * [Beginning with linux](#beginning-with-linux)
-4. [Usage - Configuration options and additional functionality](#usage)
-5. [Reference - An under-the-hood peek at what the module is doing and how](#reference)
-5. [Limitations - OS compatibility, etc.](#limitations)
-6. [Development - Guide for contributing to the module](#development)
+    * [Beginning](#beginning-with-linux)
+4. [Usage](#usage)
+5. [Reference](#reference)
+5. [Limitations](#limitations)
+6. [Development](#development)
 
 ## Overview
 
@@ -69,23 +69,23 @@ Check usage of each class:
 * Create a default 'Message of the Day':
 
  ~~~
-class {'linux::base::motd' : }
+ class {'linux::base::motd' : }
  ~~~
 
 * Create a custom message:
 
  ~~~
-class {'linux::base::motd' : 
-  content => 'Custom motd message',
-}
+ class {'linux::base::motd' : 
+   content => 'Custom motd message',
+ }
  ~~~
 
 * Create a custom esb template file:
 
  ~~~
-class {'linux::base::motd' :
-  content => 'custom/path/to/motd.esb',
-}
+ class {'linux::base::motd' :
+   content => 'custom/path/to/motd.esb',
+ }
 
 ### Base Class: HOSTS
 
@@ -116,15 +116,15 @@ class {'linux::base::motd' :
 * Update /etc/resolv.conf from [linux::params]:
 
  ~~~
-class {'linux::base::resolv_conf' : }
+ class {'linux::base::resolv_conf' : }
  ~~~
 
 * Update /etc/resolv.conf of custom servers:
 
  ~~~
-class {'linux::base::resolv_conf' : 
-  nameservers = ['8.8.8.8'],
-}
+ class {'linux::base::resolv_conf' : 
+   nameservers = ['8.8.8.8'],
+ }
  ~~~
 
 
@@ -133,9 +133,9 @@ class {'linux::base::resolv_conf' :
 * Set to permissive mode:
 
  ~~~
-class {'linux::security::selinux' :
-  mode => permissive,
-}
+ class {'linux::security::selinux' :
+   mode => permissive,
+ }
  ~~~
 
 * Set to enforced mode:
@@ -149,17 +149,17 @@ class {'linux::security::selinux' :
 * Set to 'disabled' mode:
 
  ~~~
-class {'linux::security::selinux' :
-  mode => disabled,
-}
+ class {'linux::security::selinux' :
+   mode => disabled,
+ }
  ~~~
 
 * Config from your own custom template:
 
  ~~~
-class {'linux::security::selinux' :
-  template_conf => 'module/selinux/config.erb',
-}
+ class {'linux::security::selinux' :
+   template_conf => 'module/selinux/config.erb',
+ }
  ~~~
 
 
@@ -181,7 +181,7 @@ class {'linux::security::selinux' :
 * Files affected: 
 
  ~~~
-/etc/motd
+ /etc/motd
  ~~~
 
 ### Base Class: Hosts
