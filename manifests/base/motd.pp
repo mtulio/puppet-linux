@@ -1,6 +1,7 @@
-# == Class: linux::security::selinux
 #
-# This module manages the /etc/motd file using a template
+# == Class: linux::base::motd
+#
+# This module manages the /etc/motd file using a template.
 #
 class linux::base::motd (
   $template = undef,
@@ -10,7 +11,7 @@ class linux::base::motd (
   if $::kernel == 'Linux' {
     if $template {
       if $content {
-        warning('Both $template and $content parameters passed to motd, ignoring content')
+        warning("Both parameters passed to motd, ignoring content [${content}]")
       }
       $motd_content = template($template)
     }
@@ -22,7 +23,7 @@ class linux::base::motd (
     }
 
     file { '/etc/motd':
-      ensure  => file,
+      ensure  => 'file',
       backup  => false,
       content => $motd_content,
     }

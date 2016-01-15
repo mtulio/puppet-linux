@@ -261,6 +261,10 @@ See project page at https://github.com/mtulio/puppet-linux
 
 ## Release Notes
 
+[1.0.1]
+* Coding style review
+* Documentation review and fix
+
 [1.0.0]
 * Add module: linux::base::sudoers
 * Review documentation e project description

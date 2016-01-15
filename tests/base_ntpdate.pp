@@ -1,4 +1,4 @@
-# Test of class NTPdate
-class { 'linux::base::ntpdate' : 
+# Example of class: NTPdate
+class { 'linux::base::ntpdate' :
   ntpserver => 'pool.ntp.br',
 }

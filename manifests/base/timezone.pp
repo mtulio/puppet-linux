@@ -1,19 +1,16 @@
-# Class: timezone
+#
+# == Class: linux::base::timezone
 #
 # This module manages timezone settings
 #
 # Actions:
 #   Installs tzdata and configures timezone
 #
-# Requires:
-#   Nothing
-#
 # Sample Usage:
 #   class { 'timezone':
 #     timezone => 'America/Sao_Paulo',
 #   }
 #
-# [Remember: No empty lines between comments and class definition]
 class linux::base::timezone (
   $ensure       = 'present',
   $timezone     = undef,
@@ -58,5 +55,5 @@ class linux::base::timezone (
     ensure  => $localtime_ensure,
     target  => "${linux::params::gb_tz_zoneinfo_dir}${timezone}",
     require => Package[$linux::params::gb_tz_package],
-  } 
+  }
 }

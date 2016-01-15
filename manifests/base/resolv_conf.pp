@@ -1,10 +1,9 @@
-
+#
 # == Class: linux::base::resolv_conf
 #
 # This class update /etc/resolv.conf to your
 # default config.
 #
-
 class linux::base::resolv_conf (
   $nameservers = undef,
   $domainname  = undef,
@@ -12,7 +11,6 @@ class linux::base::resolv_conf (
   $options     = undef,
   $template    = undef,
 ) inherits linux {
-
 
   if $template == undef {
 
@@ -36,8 +34,8 @@ class linux::base::resolv_conf (
     }
   }
   else {
-    notice("#> Using template [$template]")
-    $domainname_real = "$::domain"
+    notice("#> Using template [${template}]")
+    $domainname_real = $::domain
 
     file { 'resolv.conf':
       ensure  => file,
@@ -45,7 +43,7 @@ class linux::base::resolv_conf (
       owner   => 'root',
       group   => $linux::params::gb_rc_group,
       mode    => '0644',
-      content => template("${template}"),
+      content => template($template),
     }
   }
 }

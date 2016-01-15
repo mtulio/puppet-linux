@@ -1,4 +1,4 @@
 # Example of class: TIMEZONE
-class { 'linux::base::timezone' : 
+class { 'linux::base::timezone' :
   timezone => 'America/Recife',
 }

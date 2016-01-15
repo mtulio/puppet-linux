@@ -1,3 +1,4 @@
+#
 # == Class: linux::security::selinux
 #
 # This module manages the SELinux configuration file.
@@ -11,16 +12,18 @@ class linux::security::selinux (
 ) {
 
   ## Check 
-  validate_re($mode, 
-	'^enforcing|permissive|disabled$', 
-	"mode is ${mode} and must be either 'enforcing', 'permissive' or 'disabled'.")
+  validate_re($mode,
+    '^enforcing|permissive|disabled$',
+    "Mode [${mode}] must be either 'enforcing', 'permissive' or 'disabled'.")
 
-  validate_re($type, 
-	'^targeted|strict$', 
-	"type is ${type} and must be either 'targeted' or 'strict'.")
+  validate_re($type,
+    '^targeted|strict$',
+    "type is ${type} and must be either 'targeted' or 'strict'.")
 
   if $setlocaldefs != undef {
-    validate_re($setlocaldefs, '^0|1$', "local defs is ${setlocaldefs} must be either 0 or 1.")
+    validate_re($setlocaldefs,
+      '^0|1$',
+      "local defs is ${setlocaldefs} must be either 0 or 1.")
   }
 
   validate_absolute_path($config_file)
@@ -28,8 +31,8 @@ class linux::security::selinux (
   if $template_conf == undef {
     $template = 'linux/security/selinux/config.erb'
   } else {
-    $template = "$template_conf"
-  } 
+    $template = $template_conf
+  }
 
   ## Set mode
   if $mode == 'disabled' {
