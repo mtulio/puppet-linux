@@ -37,13 +37,14 @@ Basic Sysadmin administration:
 
 ### What module affects
 
-* This module can change all the comportament of the Linux Operational System,
+* This module can change all the behavior of the Linux Operational System,
   mostly the security classes
+  
 
 ### Setup Requirements 
 
-Class 'iptables' depends of module:
-* firewall
+Install module:
+* puppet module install mtulio-linux
 
 ### Beginning
 
