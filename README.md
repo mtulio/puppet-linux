@@ -2,22 +2,23 @@
 
 #### Table of Contents
 
-1. [Overview](#overview)
-2. [Module Description](#module-description)
-3. [Setup](#setup)
+1. [Overview](#1-overview)
+2. [Module Description](#2-module-description)
+3. [Setup](#3-setup)
     * [What module affects](#what-module-affects)
     * [Setup requirements](#setup-requirements)
     * [Beginning](#beginning)
-4. [Usage](#usage)
-5. [Reference](#reference)
-5. [Limitations](#limitations)
-6. [Development](#development)
+4. [Usage](#4-usage)
+5. [Reference](#5-reference)
+6. [Limitations](#6-limitations)
+7. [Development](#7-development)
+8. [Release Notes](#8-release-notes)
 
-## Overview
+## 1. Overview
 
 This module is a 'all-in-one' module to manage main Linux configurations including basic and security options
 
-## Module Description
+## 2. Module Description
 
 This module is a 'all-in-one' module to manage main Linux configurations, that includes:
 
@@ -33,7 +34,7 @@ Basic Sysadmin administration:
 * sudoers
 
 
-## Setup
+## 3. Setup
 
 ### What module affects
 
@@ -51,7 +52,7 @@ Install module:
 This is a great module to configure your OS Linux. This module can be called from a 
 profile module, and it was created to be easy to manage the simple Linux configurations.
 
-## Usage
+## 4. Usage
 
 Check usage of each class: 
 
@@ -182,7 +183,7 @@ class {'linux::security::selinux' :
 ```
 
 
-## Reference
+## 5. Reference
 
 ### Base Class: NTPdate
 
@@ -239,9 +240,6 @@ class {'linux::security::selinux' :
 /etc/sudoers
 ```
 
-
-
-
 ### Security Class: SELinux
 
 * Description: Configure SELinux to enforcing, permissive or disabled mode
@@ -251,25 +249,22 @@ class {'linux::security::selinux' :
 /etc/selinux/config
 ```
 
-## Limitations
+## 6. Limitations
 
 OS compatibility: 
 * Red Hat family 7+ 
 
 We're working to support more OS.
 
-## Development
+## 7. Development
 
 See project page at https://github.com/mtulio/puppet-linux
 
-## Release Notes
+## 8. Release Notes
 
-[1.0.2]
+[1.0.1] - [1.0.3]  
 * Documentation review and fix
-
-[1.0.1]
 * Coding style review
-* Documentation review and fix
 
 [1.0.0]
 * Add module: linux::base::sudoers
