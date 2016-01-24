@@ -147,6 +147,36 @@ Check usage of each class:
  }
 ```
 
+### Base Function: USER
+
+* Add local user [tests/base_user_add.pp]:
+
+```
+include linux
+linux::base::user {'marco.braga':
+  ensure           => present,
+  user             => 'marco.braga',
+  comment          => 'Test add user',
+  home             => '/home/marco.braga',
+  password         => 'teste',
+  gid              => 'marco.braga',
+  groups           => ['users','g2'],
+  shell            => '/bin/bash',
+  manage_home      => true,
+  password_max_age => '99999',
+  password_min_age => '0',
+  group_ensure     => 'present'
+}
+```
+
+* Remove user from system [tests/base_user_rem.pp]:
+```
+include linux
+linux::base::user {'marco.braga':
+  ensure => absent
+}
+```
+
 
 ### Security Class: SELinux
 
@@ -239,6 +269,16 @@ class {'linux::security::selinux' :
 ```
 /etc/sudoers
 ```
+### Feature User: Base/USER
+
+* Description: Add or remove local users on Linux System
+* Files affected: 
+
+```
+/etc/passwd
+/etc/shadow
+/etc/groups
+```
 
 ### Security Class: SELinux
 
@@ -262,7 +302,10 @@ See project page at https://github.com/mtulio/puppet-linux
 
 ## 8. Release Notes
 
-[1.0.1] - [1.0.3]  
+[1.1.0] 
+* New feature: 'linux::base::user' - Manage and delete users
+
+[1.0.1] - [1.0.3] <-
 * Documentation review and fix
 * Coding style review
 
