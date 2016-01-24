@@ -302,7 +302,10 @@ See project page at https://github.com/mtulio/puppet-linux
 
 ## 8. Release Notes
 
-[1.1.0] <-
+[1.1.1]
+* Fix metadata dependences
+
+[1.1.0]
 * New feature: 'linux::base::user' - Manage and delete users
 
 [1.0.1] - [1.0.3]
