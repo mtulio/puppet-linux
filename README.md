@@ -1,7 +1,7 @@
 # linux
 
 [![Puppet Forge](http://img.shields.io/puppetforge/v/mtulio/linux.svg)](https://forge.puppetlabs.com/mtulio/linux)
-[![Build Status](https://travis-ci.org/mtulio/puppet-mod-linux.png?branch=master)](https://travis-ci.org/mtulio/puppet-mod-linux)
+[![Build Status](https://travis-ci.org/mtulio/puppet-linux.png?branch=master)](https://travis-ci.org/mtulio/puppet-linux)
 
 
 #### Table of Contents
